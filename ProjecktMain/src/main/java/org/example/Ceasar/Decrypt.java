@@ -71,19 +71,21 @@ public class Decrypt extends  JFrame implements ActionListener {
     for (char letter : message.toCharArray()) {
       int index = SYMBOLS.indexOf(letter);
 
-      if (index != -1) {
+      if (letter == ' ') {
+        result += letter;
+      }
+      else if (index != -1) {
         for (int i = 0; i < numberSlide; i++) {
-          if (index == 0) {
-            index = SYMBOLS.length() - 1; // Baştan sona atla
-          } else {
-            index--;
-          }
+            if (index == 0) {
+              index = SYMBOLS.length()-1;
+            }
+            else if(index != 0) {
+              index--;
+            }
         }
         result += SYMBOLS.charAt(index);
       }
-      else {
-        result += letter;
-      }
+
     }
 
     System.out.println(result);
