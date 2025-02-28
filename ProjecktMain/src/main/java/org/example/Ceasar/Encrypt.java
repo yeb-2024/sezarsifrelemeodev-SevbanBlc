@@ -73,18 +73,19 @@ public class Encrypt extends JFrame implements ActionListener {
       int index = SYMBOLS.indexOf(letter);
       for (int i = 0; i < numberSlide; i++){
         if (index == SYMBOLS.length()){
-          index = 0;
+          index = 1;
         }
-        else {
+        else if (index != SYMBOLS.length()){
           index++;
         }
 
       }
-      if (index != -1) {
+      if (letter == ' ') {
+        result += letter;
+      }
+      else if (index != -1) {
 
         result += SYMBOLS.charAt(index);
-      } else {
-        result += letter;
       }
     }
 
